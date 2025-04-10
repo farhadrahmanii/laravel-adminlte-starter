@@ -8,7 +8,8 @@
     <title>@yield('title') - {{ config('app.name') }}</title>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    @vite(['resources/css/app.css'])
+    <!-- @vite(['resources/css/app.css']) -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('styles')
 </head>
 
@@ -18,13 +19,12 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
-                            class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 @permission('dashboard.read')
-                    <li class="nav-item d-none d-sm-inline-block">
-                        <a href="{{ route('admin.dashboard.index') }}" class="nav-link">{{ __('Dashboard') }}</a>
-                    </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="{{ route('admin.dashboard.index') }}" class="nav-link">{{ __('Dashboard') }}</a>
+                </li>
                 @endpermission
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -71,44 +71,44 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
                         @permission('dashboard.read')
-                            <li class="nav-item">
-                                <a href="{{ route('admin.dashboard.index') }}" class="nav-link">
-                                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                                    <p>{{ __('Dashboard') }}</p>
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.dashboard.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>{{ __('Dashboard') }}</p>
+                            </a>
+                        </li>
                         @endpermission
                         @permission('roles.read')
-                            <li class="nav-item">
-                                <a href="{{ route('admin.roles.index') }}" class="nav-link">
-                                    <i class="nav-icon fas fa-shield-alt"></i>
-                                    <p>{{ __('Roles') }}</p>
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.roles.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-shield-alt"></i>
+                                <p>{{ __('Roles') }}</p>
+                            </a>
+                        </li>
                         @endpermission
                         @permission('permissions.read')
-                            <li class="nav-item">
-                                <a href="{{ route('admin.permissions.index') }}" class="nav-link">
-                                    <i class="nav-icon fas fa-user-shield"></i>
-                                    <p>{{ __('Permissions') }}</p>
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.permissions.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-user-shield"></i>
+                                <p>{{ __('Permissions') }}</p>
+                            </a>
+                        </li>
                         @endpermission
                         @permission('users.read')
-                            <li class="nav-item">
-                                <a href="{{ route('admin.users.index') }}" class="nav-link">
-                                    <i class="nav-icon fas fa-users"></i>
-                                    <p>{{ __('Users') }}</p>
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.users.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>{{ __('Users') }}</p>
+                            </a>
+                        </li>
                         @endpermission
                         @permission('profile.read')
-                            <li class="nav-item">
-                                <a href="{{ route('profile.index') }}" class="nav-link">
-                                    <i class="nav-icon fas fa-user"></i>
-                                    <p>{{ __('My Profile') }}</p>
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a href="{{ route('profile.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>{{ __('My Profile') }}</p>
+                            </a>
+                        </li>
                         @endpermission
                         <li class="nav-item">
                             <a href="javascript:void(0);" id="logout-button" class="nav-link">
